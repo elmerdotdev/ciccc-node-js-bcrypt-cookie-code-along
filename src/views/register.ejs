@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+  <h1>Register</h1>
+  <form action="/register" method="POST">
+    <div class="field">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" placeholder="Enter username..." autocomplete="off" required>
+    </div>
+    <div class="field">
+      <label for="email">Email Address:</label>
+      <input type="email" name="email" id="email" placeholder="Enter email address..." autocomplete="off" pattern=".*@gmail\.com" required title="Only gmail.com users can register">
+    </div>
+    <div class="field">
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" autocomplete="off" required pattern="[a-zA-Z0-9]{8,}" title="Password should be at least 8 characters.">
+    </div>
+    <button type="submit">Create an account</button>
+  </form>
+
+<%- include('partials/footer') %>

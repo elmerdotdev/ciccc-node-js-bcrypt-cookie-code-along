@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+
+  <h1>Login</h1>
+  <form action="/login" method="POST">
+    <div class="field">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" autocomplete="off" placeholder="Enter username..." required>
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" pattern="[a-zA-Z0-9]{8,}" required>
+    </div>
+    <button type="submit">Log In</button>
+  </form>
+
+<%- include('partials/footer') %>
