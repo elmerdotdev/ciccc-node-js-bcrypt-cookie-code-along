@@ -5,11 +5,11 @@ import bcrypt from 'bcrypt'
 import { checkAuth, checkNotAuth } from '../middleware/auth'
 
 // Helper function for bcrypt
-const hashPassword = async (password: string, rounds: number): Promise<string> => {
-  const salt = await bcrypt.genSalt(rounds)
-  const hash = await bcrypt.hash(password, salt)
-  return hash // hashed password
-}
+//const hashPassword = async (password: string, rounds: number): Promise<string> => {
+//  const salt = await bcrypt.genSalt(rounds)
+//  const hash = await bcrypt.hash(password, salt)
+//  return hash // hashed password
+//}
 
 // In-memory database
 let users: User[] = []
@@ -33,7 +33,7 @@ pageRouter.post('/register', async (req: Request<{}, {}, User>, res: Response) =
       res.status(500).send('Username already taken')
       return
     }
-    const newPassword = await hashPassword(password, 12) // 12 is the recommended rounds
+    const newPassword = await bcrypt.hash(password, 12); // 12 is the recommended rounds
     const newUser = {
       username,
       password: newPassword,
